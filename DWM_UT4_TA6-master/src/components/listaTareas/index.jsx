@@ -25,6 +25,12 @@ function listaTareas() {
         }
     };
 
+    const eliminarTarea = (index) => {
+        const nuevasTareas = [...tareas];
+        nuevasTareas.splice(index, 1);
+        setTareas(nuevasTareas);
+    };
+
     return (
         <div className={estilo.card}>
             <h1 className={estilo.h1}>Lista de tareas</h1>
@@ -36,6 +42,7 @@ function listaTareas() {
                 {tareas.map((tarea, index) => (
                     <li key={index}>{tarea}
                         <button onClick={() => editarTarea(index)}>Editar</button>
+                        <button onClick={() => eliminarTarea(index)}>Eliminar</button>
                     </li>
                 ))}
             </ul>
